@@ -1,0 +1,12 @@
+@use "./sass/variables";
+@use "./sass/Home";
+
+body {
+  background: variables.$body-background;
+  text-align: center;
+  font-family: variables.$font-family;
+}
+
+.title {
+  color: rgb(61, 34, 34);
+}

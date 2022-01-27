@@ -1,0 +1,93 @@
+@use "./variables";
+
+@mixin shape($height: 100px, $width: 100px) {
+  width: $width;
+  height: $height;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin animation($name: rotate) {
+  animation-name: $name;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.panel {
+  @include shape;
+  display: inline-block;
+  margin: 5px;
+}
+.top-left {
+  background: red;
+  border-top-left-radius: 100%;
+}
+
+.flash {
+  border: 2px solid white;
+}
+
+.top-right {
+  background: greenyellow;
+  border-top-right-radius: 100%;
+}
+.bottom-left {
+  background: orange;
+  border-bottom-left-radius: 100%;
+}
+
+.bottom-right {
+  background: maroon;
+  border-bottom-right-radius: 100%;
+}
+
+.circle {
+  background: grey;
+  @include shape(300px, 300px);
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  display: inline-block;
+  @include animation(rotate);
+}
+
+.inner-circle {
+  background: blue;
+  @include shape;
+  border-radius: 100%;
+  position: absolute;
+  margin-left: 100px;
+  &:hover {
+    box-shadow: inset 0px 0px 0px 3px white;
+    box-sizing: border-box;
+  }
+}
+
+.start-button {
+  text-align: center;
+  margin-top: 10px;
+  line-height: 75px;
+  display: inline-block;
+  color: white;
+  font-family: variables.$font-family;
+}
+
+.highest-score {
+  float: right;
+  margin-right: 50px;
+}
+
+h3 {
+  color: cadetblue;
+}
